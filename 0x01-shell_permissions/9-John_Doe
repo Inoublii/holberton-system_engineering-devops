@@ -1,2 +1,2 @@
 #!/bin/bash
-chown 753 hello
+sudo chown 753 hello 
