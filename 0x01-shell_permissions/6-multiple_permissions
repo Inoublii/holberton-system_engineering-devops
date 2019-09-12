@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chown 554 hello
+sudo chown ug+x,o+r hello
