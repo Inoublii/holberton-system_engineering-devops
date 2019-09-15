@@ -1,2 +1,2 @@
 #!/bin/bash
- cat /etc/passwd | sed '3!d' 
+ cat iacta | sed '3!d' 
