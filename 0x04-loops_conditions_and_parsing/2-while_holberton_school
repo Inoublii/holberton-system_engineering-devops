@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 
-x=1
+x=0
 while [ $x -le 9 ]
 do
 echo "Holberton School"
