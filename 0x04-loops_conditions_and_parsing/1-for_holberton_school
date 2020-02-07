@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
-for ((x=0; x<=9; x++))
+
+for _ in {0..9}
 do
 echo "Holberton School"
 done
