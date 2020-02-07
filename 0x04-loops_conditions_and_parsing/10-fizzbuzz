@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#script that displays numbers from 1 to 100 with fiz buzz
+for x in {0..100}
+do
+if [ $((x % 15)) -eq 0 ]
+then
+echo "FizzBuzz"
+elif [ $((x % 3)) -eq 0 ]
+then
+echo "Fizz"
+elif [ $((x % 5 )) -eq 0 ]
+then
+echo "Buzz"
+else
+echo "$x"
+fi
+done
