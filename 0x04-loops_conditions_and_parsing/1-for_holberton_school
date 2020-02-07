@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
-start=0
-end=9
-for ((x=start; x<=end; x++))
+for ((x=0; x<=9; x++))
 do
 echo "Holberton School"
 done
