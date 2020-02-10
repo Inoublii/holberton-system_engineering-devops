@@ -14,7 +14,7 @@ echo "manage_my_process stopped"
 elif [ "$1" == "restart" ]
 then
 pkill -f -15 manage_my_process
-rm -r /var/run/my_process.pid
+rm -f /var/run/my_process.pid
 ./manage_my_process &
 echo "$$" > /var/run/my_process.pid
 echo "manage_my_process restarted"
