@@ -5,8 +5,8 @@ echo "$$" > /var/run/holbertonscript.pid
 x=1
 while [ $x -eq 1 ]
 do
-trap "'I hate the kill command' ; rm /var/run/holbertonscript.pid; exit" 15
-trap '"Y U no love me?!"' 2
+trap "echo 'I hate the kill command' ; rm /var/run/holbertonscript.pid; exit" 15
+trap 'echo "Y U no love me?!"' 2
 trap "'rm -r /var/run/holbertonscript.pid'; exit" 3
 echo "To infinity and beyond"
 sleep 2
