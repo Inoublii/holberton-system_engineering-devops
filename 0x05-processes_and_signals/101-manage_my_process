@@ -3,7 +3,7 @@
 
 if [ "$1" == "start" ]
 then
-sudo ./manage_my_process &
+./manage_my_process &
 echo "$$" > /var/run/my_process.pid
 echo "manage_my_process started"
 elif [ "$1" == "stop" ]
@@ -14,7 +14,7 @@ echo "manage_my_process stopped"
 elif [ "$1" == "restart" ]
 then
 pkill -f -15 manage_my_process
-rm -f /var/run/my_process.pid
+rm -r /var/run/my_process.pid
 ./manage_my_process &
 echo "$$" > /var/run/my_process.pid
 echo "manage_my_process restarted"
