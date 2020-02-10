@@ -4,7 +4,7 @@
 x=1
 while [ $x -eq 1 ]
 do
-trap 'echo "I am invincible!!!"' 15
+trap '"echo "I am invincible!!!"' 15
 echo "To infinity and beyond"
 sleep 2
 done
