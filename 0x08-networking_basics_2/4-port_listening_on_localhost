@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script is sending messages thw port 98
+sudo netcat -l 98
