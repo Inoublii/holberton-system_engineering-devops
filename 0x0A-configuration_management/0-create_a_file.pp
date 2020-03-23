@@ -1,4 +1,4 @@
- # create a file
+# create a file
 
 file { 'holberton':
   path    => '/tmp/holberton',
