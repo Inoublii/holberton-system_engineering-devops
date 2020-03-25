@@ -5,7 +5,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo service nginx start
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404_costum.html
-newlines="\\\terror_page 404 /404_costum.html;\n\tlocation = /404_costum.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
+replace="\\\terror_page 404 /404_costum.html;\n\tlocation = /404_costum.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
 sudo sed -i "27i $replace" /etc/nginx/sites-available/default
 
 sudo service nginx restart
