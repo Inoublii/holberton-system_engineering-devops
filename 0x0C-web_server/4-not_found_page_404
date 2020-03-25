@@ -4,13 +4,13 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo service nginx start
-replace="\\\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+replace="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 replace2="error_page 404 /custom_404.html; \n
-         location = /custom_404.html \n
+         location = /custom_404.html {
 		  internal;
         }"
 sudo sed -i "29i $replace" /etc/nginx/sites-available/default
-sudo sed -i "26i $replace2" /etc/nginx/sites-available/default
+sudo sed -i "25i $replace2" /etc/nginx/sites-available/default
 sudo echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sudo service nginx restart
 sudo service nginx reload
