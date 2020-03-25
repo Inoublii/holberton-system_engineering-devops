@@ -6,8 +6,8 @@ sudo apt-get update -y && \
 sudo apt-get install -y nginx
 
 sudo service nginx start
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-sudo sed -i "27i $newlines" /etc/nginx/sites-available/default
+sudo echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+sudo sed -i "27i $replace" /etc/nginx/sites-available/default
 
 sudo service nginx restart
 sudo service nginx reload
