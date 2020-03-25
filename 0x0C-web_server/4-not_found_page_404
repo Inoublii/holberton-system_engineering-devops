@@ -1,37 +1,17 @@
 #!/usr/bin/env bash
 # Install and setup nginx server
 
+replace="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
 sudo apt-get update -y && \
 sudo apt-get install -y nginx
 if [ $? -eq 0 ]
 then
 sudo service nginx start
-sudo echo -e \
-"http {
-root /var/www/domo;
-server {
-listen 80;
-server_name mrdomo.tech;
-error_page 404 = /error_404.html;
-rewrite ^/redirect_me/? \
-https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-location / {
-index index.html;
-}
-location = /error_404.html {
-                internal;
-        }
-}
-}
-events {
-}" > /etc/nginx/nginx.conf
-sudo mkdir -p /var/www/domo
-sudo echo "Holberton School" > \
-/var/www/domo/index.html
-sudo touch /var/www/domo/error_404.html
-sudo echo "Ceci n'est pas une page" < \
-/var/www/domo/error_404.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+sudo sed -i "27i $newlines" /etc/nginx/sites-available/default
+
 sudo service nginx restart
+sudo service nginx reload
 else
     echo "Could not install nginx"
     exit 1
