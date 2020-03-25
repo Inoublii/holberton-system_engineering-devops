@@ -3,12 +3,12 @@
 exec {'update':
   provider => shell,
   path => '/usr/bin:usr/sbin:bin',
-  command => 'sudo apt-get update -y',
+  command => 'sudo apt-get -y update ',
 }
 exec {'installation':
   provider => shell,
   path => '/usr/bin:usr/sbin:bin',
-  command => 'sudo apt-get install nginx -y',
+  command => 'sudo apt-get -y install nginx',
 }
 exec {'html config':
   provider => shell,
