@@ -1,5 +1,6 @@
 # Install ngnix with puppet and configurate a server
-#The redirection must be a “301 Permanently”
+# The redirection must be a “301 Permanently”
+
 exec {'updates':
   provider => shell,
   path     => '/usr/bin:/usr/sbin:/bin',
@@ -21,7 +22,6 @@ exec {'html config':
   provider => shell,
   command  => 'sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html',
 }
-
 
 
 exec {'start':
