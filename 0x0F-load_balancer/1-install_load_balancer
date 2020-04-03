@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Installing and configuring HAProxy on our load balancer
+sudo apt-get update -y
+sudo apt-get install software-properties-common -y
+sudo apt-add-repository -y ppa:vbernat/haproxy-1.8
+sudo apt-get update -y
+sudo apt-get install haproxy=1.8\* -y
+sudo sed -i "$ a\listen 231-lb-01" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tbind 0.0.0.0:80" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tmode http" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tstats enable" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tstats uri /haproxy?stats" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tbalance roundrobin" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \toption httpclose" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \toption forwardfor" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tserver 1084-web-01 35.227.78.112:80 check" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tserver 1084-web-02 54.81.167.121:80 check" /etc/haproxy/haproxy.cfg
+sudo service haproxy start
