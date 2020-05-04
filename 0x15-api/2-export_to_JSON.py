@@ -10,8 +10,7 @@ import json
 if __name__ == "__main__":
     emp_id = sys.argv[1]
     emp_name = requests.get("http://jsonplaceholder.typicode.com/users/{}"
-                        .format(emp_id)).json().get("username")
-    sums = 0
+                            .format(emp_id)).json().get("username")
     done = []
     x = requests.get("http://jsonplaceholder.typicode.com/todos").json()
 
@@ -21,7 +20,7 @@ if __name__ == "__main__":
             tmp["task"] = todos.get("title")
             tmp["completed"] = todos.get("completed")
             tmp["username"] = emp_name
-            all.append(tmp)
+            done.append(tmp)
 
     with open("{}.json".format(emp_id), 'w+') as jsonfile:
-        json.dump({emp_id: all}, jsonfile)
+        json.dump({emp_id: done}, jsonfile)
