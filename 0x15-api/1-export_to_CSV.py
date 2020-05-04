@@ -11,7 +11,6 @@ if __name__ == "__main__":
     emp_id = sys.argv[1]
     emp_name = requests.get("http://jsonplaceholder.typicode.com/users/{}"
                             .format(emp_id)).json().get("username")
-    sums = 0
     done = []
     x = requests.get("http://jsonplaceholder.typicode.com/todos").json()
     for todos in x:
@@ -21,9 +20,9 @@ if __name__ == "__main__":
                         emp_name,
                         todos.get("completed"),
                         todos.get("title")))
-            all.append(tmp)
+            done.append(tmp)
 
     with open("{}.csv".format(emp_id), 'w+') as csvfile:
         writer = csv.writer(csvfile, delimiter=',',
                             quotechar='"', quoting=csv.QUOTE_ALL)
-        writer.writerows(all)
+        writer.writerows(done)
