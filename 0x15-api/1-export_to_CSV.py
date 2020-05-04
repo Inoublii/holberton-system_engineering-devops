@@ -3,9 +3,10 @@
 Python script that use API,
 to export data in the CSV format.
 '''
+import csv
 import requests
 import sys
-import csv
+
 
 if __name__ == "__main__":
     emp_id = sys.argv[1]
