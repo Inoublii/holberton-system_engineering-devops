@@ -8,7 +8,7 @@ import requests
 
 def number_of_subscribers(subreddit):
     """
-	number of subscribers
+    number of subscribers
     """
     if subreddit is None or type(subreddit) is not str:
         return 0

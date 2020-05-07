@@ -8,7 +8,7 @@ import requests
 
 def top_ten(subreddit):
     """
-	titles of the 10 hot posts
+    titles of the 10 hot posts
     """
     if subreddit is None or type(subreddit) is not str:
         print(None)

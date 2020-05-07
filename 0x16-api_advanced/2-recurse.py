@@ -8,7 +8,7 @@ import requests
 
 def recurse(subreddit, hot_list=[], after=None):
     """
-	all hot post titles
+    all hot post titles
     """
     if subreddit is None or type(subreddit) is not str:
         return None
